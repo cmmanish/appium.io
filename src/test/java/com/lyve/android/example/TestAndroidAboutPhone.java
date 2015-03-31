@@ -1,0 +1,45 @@
+package com.lyve.android.example;
+
+/**
+ * Created by mmadhusoodan on 3/24/15.
+ */
+
+import com.google.gson.JsonParser;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import java.net.URL;
+
+public class TestAndroidAboutPhone {
+
+    private AppiumDriver driver;
+    private static final String url = "http://127.0.0.1:4723/wd/hub";
+    private static final HttpClient client = HttpClients.createDefault();
+    private static final JsonParser parser = new JsonParser();
+
+    @Test
+    public void apiDemo() throws Exception {
+        driver.scrollTo("about phone");
+        driver.scrollTo("bluetooth");
+    }
+
+
+    @Before
+    public void setUp() throws Exception {
+        final DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("appPackage", "com.android.settings");
+        capabilities.setCapability("appActivity", ".Settings");
+        driver = new AndroidDriver(new URL(url), capabilities);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        driver.quit();
+    }
+}

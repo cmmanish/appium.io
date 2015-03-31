@@ -9,6 +9,7 @@ import java.util.Calendar;
 public class QaCalendar {
 
     private static SimpleDateFormat mmddyyyyyHHMMFormat = new SimpleDateFormat("MM-dd-yyyy-hh:mm");
+    private static SimpleDateFormat mmddFormat = new SimpleDateFormat("MM-dd");
     private static Calendar calendar = Calendar.getInstance();
     private static QaCalendar instance;
 
@@ -26,7 +27,13 @@ public class QaCalendar {
 
     public String getCaptureTime() {
 
-        final String captureDate = mmddyyyyyHHMMFormat.format(calendar.getTime());
+        final String captureTime = mmddyyyyyHHMMFormat.format(calendar.getTime());
+        return captureTime;
+    }
+
+    public String getCurrentDate() {
+
+        final String captureDate = mmddFormat.format(calendar.getTime());
         return captureDate;
     }
 }

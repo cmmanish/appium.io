@@ -61,7 +61,7 @@ public class SignInAveryAppTest extends AbstractAppiumBaseClass {
     @Test
     public void testSignInAndroid() {
 
-        String email = "mmadhusoodan+multiple@lyveminds.com";
+        String email = "mmadhusoodan+111@lyveminds.com";
         String password = "123456";
 
         log.info("Create Account / Sign In Screen ");
